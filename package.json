@@ -1,6 +1,6 @@
 {
   "name": "@bonnietogamer/better-console",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A better Javascript console.",
   "main": "index.js",
   "type": "commonjs",
