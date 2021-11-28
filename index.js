@@ -6,7 +6,7 @@ const projectName = `[${name()}]`.toLowerCase();
 var oldConsole = console.log;
 
 console.log = function() {
-  if (arguments[1] == true || arguments[1] == null) arguments[0] = arguments[0].green;
+  if (arguments[1] == true || arguments[1] == null) arguments[0] = arguments[0].toString().green;
   if (arguments.length == 2) Array.prototype.pop.call(arguments);
 
   Array.prototype.unshift.call(arguments, projectName.green);
@@ -15,7 +15,7 @@ console.log = function() {
 }
 
 console.error = function() {
-  if (arguments[1] == true || arguments[1] == null) arguments[0] = arguments[0].red;
+  if (arguments[1] == true || arguments[1] == null) arguments[0] = arguments[0].toString().red;
   if (arguments.length == 2) Array.prototype.pop.call(arguments);
 
   Array.prototype.unshift.call(arguments, projectName.red);
@@ -24,7 +24,7 @@ console.error = function() {
 }
 
 console.info = function() {
-  if (arguments[1] == true || arguments[1] == null) arguments[0] = arguments[0].blue;
+  if (arguments[1] == true || arguments[1] == null) arguments[0] = arguments[0].toString().blue;
   if (arguments.length == 2) Array.prototype.pop.call(arguments);
 
   Array.prototype.unshift.call(arguments, projectName.blue);
@@ -33,7 +33,7 @@ console.info = function() {
 }
 
 console.warn = function() {
-  if (arguments[1] == true || arguments[1] == null) arguments[0] = arguments[0].yellow;
+  if (arguments[1] == true || arguments[1] == null) arguments[0] = arguments[0].toString().yellow;
   if (arguments.length == 2) Array.prototype.pop.call(arguments);
 
   Array.prototype.unshift.call(arguments, projectName.yellow);
