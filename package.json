@@ -1,5 +1,5 @@
 {
-  "name": "betterconsole",
+  "name": "@bonnietogamer/betterconsole",
   "version": "1.0.0",
   "description": "A better Javascript console.",
   "main": "index.js",
