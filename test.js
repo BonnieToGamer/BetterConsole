@@ -1,5 +1,6 @@
 require('mocha');
 const assert = require('assert');
+const { info } = require('console');
 const sinon = require('sinon');
 
 require('./index.js');
@@ -82,5 +83,14 @@ describe('BetterConsole (note: due to how I made the console I can only test to 
 
     assert(spy.calledWith(testStr));
     spy.restore();
+
+    console.log('log');
+    console.log('log', false);
+    console.error('error');
+    console.error('error', false);
+    console.info('info');
+    console.info('info', false);
+    console.warn('warn');
+    console.warn('warn', false);
   });
 });
