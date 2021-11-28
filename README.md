@@ -19,9 +19,9 @@ console.log('test', false);
 ```
 ### Output:
 
-![Example 1](./screenshots/1.png)
+![Example 1](https://github.com/BonnieToGamer/BetterConsole/blob/main/screenshots/1.png)
 
-![Example 2](./screenshots/2.png)
+![Example 2](https://github.com/BonnieToGamer/BetterConsole/blob/main/screenshots/2.png)
 
 ### Example 2:
 
@@ -40,7 +40,7 @@ console.warn('warn', false);
 
 ### Output:
 
-![Example 3](./screenshots/3.png)
+![Example 3](https://github.com/BonnieToGamer/BetterConsole/blob/main/screenshots/3.png)
 
 ## About
 <details>
