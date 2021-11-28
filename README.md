@@ -1,5 +1,5 @@
-# BetterConsole
-A better Javascript console.
+# BetterConsole [![NPM version](https://img.shields.io/npm/v/@bonnietogamer/better-console.svg?style=flat)](https://www.npmjs.com/package/@bonnietogamer/better-console) [![NPM monthly downloads](https://img.shields.io/npm/dm/@bonnietogamer/better-console.svg?style=flat)](https://www.npmjs.com/package/@bonnietogamer/better-console) [![NPM total downloads](https://img.shields.io/npm/dt/@bonnietogamer/better-console.svg?style=flat)](https://www.npmjs.com/package/@bonnietogamer/better-console)
+> A better Javascript console.
 
 ## Installation 
 Install with [npm](https://www.npmjs.com/):
@@ -46,6 +46,23 @@ console.warn('warn', false);
 <details>
 <summary><strong>Contributing</strong></summary>
 
-Feel free to make a pull request. If you encounter any issues
+Pull requests are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).
 
 </details>
+<details>
+<summary><strong>Running Tests</strong></summary>
+
+Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:
+
+```sh
+$ npm install && npm test
+```
+
+</details>
+
+## License
+
+Copyright © 2021, [BonnieToGamer](https://github.com/BonnieToGamer).
+Released under the [MIT License](LICENSE).
+
+***
