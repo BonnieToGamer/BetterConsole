@@ -5,19 +5,23 @@
   "author": "BonnieToGamer",
   "license": "MIT",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/BonnieToGamer/BetterConsole/issues"
+  },
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "project-name": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "^9.1.3",
     "sinon": "^12.0.1"
   },
-   "repository": "BonnieToGamer/BetterConsole",
-   "homepage": "https://github.com/BonnieToGamer/BetterConsole",
-   "files": [
-     "index.js"
-   ],
+  "repository": "BonnieToGamer/BetterConsole",
+  "homepage": "https://github.com/BonnieToGamer/BetterConsole",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "mocha"
   },
@@ -26,10 +30,6 @@
     "color",
     "colorful"
   ],
-  "dependencies": {
-    "colors": "^1.4.0",
-    "project-name": "^1.0.0"
-  },
   "engines": {
     "node": ">=16"
   }
