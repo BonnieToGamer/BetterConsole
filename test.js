@@ -1,9 +1,8 @@
-import 'mocha';
-import assert from 'assert';
-import { info } from 'console';
-import spy from 'sinon';
+require('mocha');
+const assert = require('assert');
+const sinon = require('sinon');
 
-import console, { log } from './index.js';
+const console = require('./index.js');
 
 const testStr = 'test';
 
@@ -12,17 +11,18 @@ describe('BetterConsole (note: due to how I made the console I can only test to 
   // log
   
   it('Should write to the console in green with the name of the project at the front', function() {
-    let spy = spy(console, 'log');
-    log(testStr);
+    let spy = sinon.spy(console, 'log');
+    console.log(testStr);
 
     assert(spy.calledWith(testStr));
     spy.restore();
   });
 
   it('Should write to the console with the name of the project at the front in green', function() {
-    let spy = spy(console, 'log');
+    let spy = sinon.spy(console, 'log');
     
-    log(testStr, false);
+    console.options.logWithColor = false;
+    console.log(testStr);
 
     assert(spy.calledWith(testStr));
     spy.restore();
@@ -30,58 +30,114 @@ describe('BetterConsole (note: due to how I made the console I can only test to 
 
   // error
 
-  // it('Should write to the console in red with the name of the project at the front', function() {
-  //   let spy = sinon.spy(console, 'error');
-  //   console.error(testStr);
+  it('Should write to the console in red with the name of the project at the front', function() {
+    let spy = sinon.spy(console, 'error');
+    console.error(testStr);
 
-  //   assert(spy.calledWith(testStr));
-  //   spy.restore();
-  // });
+    assert(spy.calledWith(testStr));
+    spy.restore();
+  });
 
-  // it('Should write to the console with the name of the project at the front in red', function() {
-  //   let spy = sinon.spy(console, 'error');
+  it('Should write to the console with the name of the project at the front in red', function() {
+    let spy = sinon.spy(console, 'error');
 
-  //   console.error(testStr, false);
+    console.options.errorWithColor = false;
+    console.error(testStr);
 
-  //   assert(spy.calledWith(testStr));
-  //   spy.restore();
-  // });
+    assert(spy.calledWith(testStr));
+    spy.restore();
+  });
 
-  // // info
+  // info
 
-  // it('Should write to the console in blue with the name of the project at the front', function() {
-  //   let spy = sinon.spy(console, 'info');
-  //   console.info(testStr);
+  it('Should write to the console in blue with the name of the project at the front', function() {
+    let spy = sinon.spy(console, 'info');
+    console.info(testStr);
 
-  //   assert(spy.calledWith(testStr));
-  //   spy.restore();
-  // });
+    assert(spy.calledWith(testStr));
+    spy.restore();
+  });
 
-  // it('Should write to the console with the name of the project at the front in blue', function() {
-  //   let spy = sinon.spy(console, 'info');
+  it('Should write to the console with the name of the project at the front in blue', function() {
+    let spy = sinon.spy(console, 'info');
 
-  //   console.info(testStr, false);
+    console.options.infoWithColor = false;
+    console.info(testStr);
 
-  //   assert(spy.calledWith(testStr));
-  //   spy.restore();
-  // });
+    assert(spy.calledWith(testStr));
+    spy.restore();
+  });
 
-  // // warn 
+  // warn 
   
-  // it('Should write to the console in yellow with the name of the project at the front', function() {
-  //   let spy = sinon.spy(console, 'warn');
-  //   console.warn(testStr);
+  it('Should write to the console in yellow with the name of the project at the front', function() {
+    let spy = sinon.spy(console, 'warn');
+    console.warn(testStr);
 
-  //   assert(spy.calledWith(testStr));
-  //   spy.restore();
-  // });
+    assert(spy.calledWith(testStr));
+    spy.restore();
+  });
 
-  // it('Should write to the console with the name of the project at the front in yellow', function() {
-  //   let spy = sinon.spy(console, 'warn');
+  it('Should write to the console with the name of the project at the front in yellow', function() {
+    let spy = sinon.spy(console, 'warn');
 
-  //   console.warn(testStr, false);
+    console.options.warnWithColor = false;
+    console.warn(testStr);
 
-  //   assert(spy.calledWith(testStr));
-  //   spy.restore();
-  // });
+    assert(spy.calledWith(testStr));
+    spy.restore();
+  });
+
+  // debug
+
+  it('Should write to the console in green with the name of the project at the front', function() {
+    let spy = sinon.spy(console, 'debug');
+    console.debug(testStr);
+
+    assert(spy.calledWith(testStr));
+    spy.restore();
+  });
+
+  // clear
+
+  it('Should clear the console', function() {
+    if (process.env.CONSOLECLEAR == "true") {
+      console.clear();
+    }
+  });
+
+  // trace
+
+  it('Should write to the console in green with the name of the project at the front', function() {
+    console.trace();
+  });
+
+  // assert
+
+  it('Should assert to the console in green with the name of the project at the front', function() {
+    console.assert(1 < 2, "fail");
+    console.assert(1 > 2, "fail");
+  });
+
+  // count
+
+  it('Should write to the console in green with the name of the project at the front', function() {
+    let spy = sinon.spy(console, 'count');
+    console.count(testStr);
+
+    assert(spy.calledWith(testStr));
+    spy.restore();
+  });
+
+  // time
+
+  it('Should write the time to the console in green with the name of the project at the front', function() {
+    console.time();
+  });
+
+  // timeEnd
+
+  it('Should stop the time', function() {
+    console.timeEnd();
+  });
 });

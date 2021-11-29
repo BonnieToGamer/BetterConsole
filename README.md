@@ -1,10 +1,10 @@
-# BetterConsole [![NPM version](https://img.shields.io/npm/v/@bonnietogamer/better-console.svg?style=flat)](https://www.npmjs.com/package/@bonnietogamer/better-console) [![NPM monthly downloads](https://img.shields.io/npm/dm/@bonnietogamer/better-console.svg?style=flat)](https://www.npmjs.com/package/@bonnietogamer/better-console) [![NPM total downloads](https://img.shields.io/npm/dt/@bonnietogamer/better-console.svg?style=flat)](https://www.npmjs.com/package/@bonnietogamer/better-console)
-> A better Javascript console.
+# even-better-console [![NPM version](https://img.shields.io/npm/v/even-better-console.svg?style=flat)](https://www.npmjs.com/package/even-better-console) [![NPM monthly downloads](https://img.shields.io/npm/dm/even-better-console.svg?style=flat)](https://www.npmjs.com/package/even-better-console) [![NPM total downloads](https://img.shields.io/npm/dt/even-better-console.svg?style=flat)](https://www.npmjs.com/package/even-better-console)
+> An even better Node.js console.
 
 ## Installation 
 Install with [npm](https://www.npmjs.com/):
 ```sh
-$ npm install @bonnietogamer/better-console
+$ npm install even-better-console
 ```
 
 ## Usage
@@ -12,35 +12,40 @@ When writing to the console this project will add the project name as a prefix t
 By default both the prefix and the paramaters are colored.
 
 ```js
-require('@bonnietogamer/better-console');
+require('even-better-console');
 
 console.log('test');
-console.log('test', false);
+console.options.logWithColor = false;
+console.log('test');
 ```
 ### Output:
 
-![Example 1](https://github.com/BonnieToGamer/BetterConsole/blob/main/screenshots/1.png)
+![Example 1](https://github.com/BonnieToGamer/even-better-console/blob/main/screenshots/1.png)
 
-![Example 2](https://github.com/BonnieToGamer/BetterConsole/blob/main/screenshots/2.png)
+![Example 2](https://github.com/BonnieToGamer/even-better-console/blob/main/screenshots/2.png)
 
 ### Example 2:
 
 ```js
-require('@bonnietogamer/better-console');
+require('even-better-console');
 
 console.log('log');
-console.log('log', false);
+console.options.logWithColor = false;
+console.log('log');
 console.error('error');
-console.error('error', false);
+console.options.errorWithColor = false;
+console.error('error');
 console.info('info');
-console.info('info', false);
+console.options.infoWithColor = false;
+console.info('info');
 console.warn('warn');
-console.warn('warn', false);
+console.options.warnWithColor = false;
+console.warn('warn');
 ```
 
 ### Output:
 
-![Example 3](https://github.com/BonnieToGamer/BetterConsole/blob/main/screenshots/3.png)
+![Example 3](https://github.com/BonnieToGamer/even-better-console/blob/main/screenshots/3.png)
 
 ## About
 <details>
