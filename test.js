@@ -2,142 +2,208 @@ require('mocha');
 const assert = require('assert');
 const sinon = require('sinon');
 
-const console = require('./index.js');
+const evenBetterConsole = require('./index.js');
 
 const testStr = 'test';
 
 describe('BetterConsole (note: due to how I made the console I can only test to see if the paramater was called)', function() {
+  console.log('the order of tests');
 
-  // log
+  // assert
+  console.log('Assert');
+
+  it('Should write an error in red with the name at the front', function() {
+    evenBetterConsole.assert(1 < 2, 'fail1');
+    evenBetterConsole.assert(1 > 2, 'fail2');
+  });
+
+  // clear
+  console.log('Clear');
+
+  it('Should clear the console', function() {
+    if (process.env.CONSOLECLEAR == 'true') {
+      evenBetterConsole.clear();
+    }
+  });
+
+  // count
+  console.log('Count')
+
+  it('Should start a counter', function() {
+    evenBetterConsole.count(testStr);
+    evenBetterConsole.log(testStr);
+    evenBetterConsole.count(testStr);
+  });
+
+  // countReset
+  console.log('countReset');
+
+  it('Should reset the counter', function() {
+    evenBetterConsole.countReset(testStr);
+  });
+
+  // debug
+  console.log('debug');
   
   it('Should write to the console in green with the name of the project at the front', function() {
-    let spy = sinon.spy(console, 'log');
-    console.log(testStr);
+    let spy = sinon.spy(evenBetterConsole, 'debug');
+    evenBetterConsole.debug(testStr);
 
     assert(spy.calledWith(testStr));
     spy.restore();
   });
 
-  it('Should write to the console with the name of the project at the front in green', function() {
-    let spy = sinon.spy(console, 'log');
-    
-    console.options.logWithColor = false;
-    console.log(testStr);
+  // dir
+  console.log('dir');
 
-    assert(spy.calledWith(testStr));
-    spy.restore();
+  it('Should displays an interactive list of the properties of the specified JavaScript object', function() {
+    evenBetterConsole.dir(testStr);
+  })
+
+  // dirxml
+  console.log('dirxml');
+  
+  it('Should display an interactive tree of the descendant elements of the specified XML/HTML element', function() {
+    evenBetterConsole.dirxml(testStr)
   });
 
   // error
-
+  console.log('error');
+  
   it('Should write to the console in red with the name of the project at the front', function() {
-    let spy = sinon.spy(console, 'error');
-    console.error(testStr);
+    let spy = sinon.spy(evenBetterConsole, 'error');
+    evenBetterConsole.error(testStr);
 
     assert(spy.calledWith(testStr));
     spy.restore();
   });
 
   it('Should write to the console with the name of the project at the front in red', function() {
-    let spy = sinon.spy(console, 'error');
+    let spy = sinon.spy(evenBetterConsole, 'error');
 
-    console.options.errorWithColor = false;
-    console.error(testStr);
-
+    evenBetterConsole.options.errorWithColor = false;
+    evenBetterConsole.error(testStr);
+    evenBetterConsole.options.errorWithColor = true;
+    
     assert(spy.calledWith(testStr));
     spy.restore();
   });
 
+  // group, groupCollapsed, groupEnd
+  console.log('group, groupCollapsed, groupEnd');
+
+  it ('Should write test to the console then indent the console write test2 indent again and write test3 unindent write test4 then unindent and finally write test5', function() {
+    evenBetterConsole.log('test');
+    evenBetterConsole.group();
+    evenBetterConsole.log('test2');
+    evenBetterConsole.group();
+    evenBetterConsole.log('test3');
+    evenBetterConsole.groupEnd();
+    evenBetterConsole.log('test4');
+    evenBetterConsole.groupEnd();
+    evenBetterConsole.log('test5');
+  });
+
   // info
+  console.log('info');
 
   it('Should write to the console in blue with the name of the project at the front', function() {
-    let spy = sinon.spy(console, 'info');
-    console.info(testStr);
+    let spy = sinon.spy(evenBetterConsole, 'info');
+    evenBetterConsole.info(testStr);
 
     assert(spy.calledWith(testStr));
     spy.restore();
   });
 
   it('Should write to the console with the name of the project at the front in blue', function() {
-    let spy = sinon.spy(console, 'info');
+    let spy = sinon.spy(evenBetterConsole, 'info');
 
-    console.options.infoWithColor = false;
-    console.info(testStr);
+    evenBetterConsole.options.infoWithColor = false;
+    evenBetterConsole.info(testStr);
+    evenBetterConsole.options.logWithColor = true;
 
     assert(spy.calledWith(testStr));
     spy.restore();
   });
 
+  // log
+  console.log('log');
+  
+  it('Should write to the console in green with the name of the project at the front', function() {
+    let spy = sinon.spy(evenBetterConsole, 'log');
+    evenBetterConsole.log(testStr);
+
+    assert(spy.calledWith(testStr));
+    spy.restore();
+  });
+
+  it('Should write to the console with the name of the project at the front in green', function() {
+    let spy = sinon.spy(evenBetterConsole, 'log');
+    
+    evenBetterConsole.options.logWithColor = false;
+    evenBetterConsole.log(testStr);
+    evenBetterConsole.options.logWithColor = true;
+
+    assert(spy.calledWith(testStr));
+    spy.restore();
+  });
+
+  // table
+  console.log('table');
+
+  it('Should write a table to the console with the name of the project in green', function() {
+    let arr = [['a', 'b', 'c', 'd'], ['e', 'f', 'g', 'h'], ['i', 'j', 'k', 'l']];
+
+    evenBetterConsole.table(arr);
+  });
+
+  // time
+  console.log('time');
+
+  it('Should start a timer', function() {
+    evenBetterConsole.time();
+  });
+
+  // timeLog
+  console.log('timeLog');
+
+  it('Should write the time to the console in green with the name of the project at the front', function() {
+    evenBetterConsole.timeLog();
+  }); 
+
+  // timeEnd
+  console.log('timeEnd');
+
+  it('Should stop the time', function() {
+    evenBetterConsole.timeEnd();
+  });
+
+  // trace
+  console.log('trace');
+
+  it('Should write to the console in green with the name of the project at the front', function() {
+    evenBetterConsole.trace();
+  });
+
   // warn 
+  console.log('warn');
   
   it('Should write to the console in yellow with the name of the project at the front', function() {
-    let spy = sinon.spy(console, 'warn');
-    console.warn(testStr);
+    let spy = sinon.spy(evenBetterConsole, 'warn');
+    evenBetterConsole.warn(testStr);
 
     assert(spy.calledWith(testStr));
     spy.restore();
   });
 
   it('Should write to the console with the name of the project at the front in yellow', function() {
-    let spy = sinon.spy(console, 'warn');
+    let spy = sinon.spy(evenBetterConsole, 'warn');
 
-    console.options.warnWithColor = false;
-    console.warn(testStr);
-
-    assert(spy.calledWith(testStr));
-    spy.restore();
-  });
-
-  // debug
-
-  it('Should write to the console in green with the name of the project at the front', function() {
-    let spy = sinon.spy(console, 'debug');
-    console.debug(testStr);
+    evenBetterConsole.options.warnWithColor = false;
+    evenBetterConsole.warn(testStr);
+    evenBetterConsole.options.warnWithColor = true;
 
     assert(spy.calledWith(testStr));
     spy.restore();
-  });
-
-  // clear
-
-  it('Should clear the console', function() {
-    if (process.env.CONSOLECLEAR == "true") {
-      console.clear();
-    }
-  });
-
-  // trace
-
-  it('Should write to the console in green with the name of the project at the front', function() {
-    console.trace();
-  });
-
-  // assert
-
-  it('Should assert to the console in green with the name of the project at the front', function() {
-    console.assert(1 < 2, "fail");
-    console.assert(1 > 2, "fail");
-  });
-
-  // count
-
-  it('Should write to the console in green with the name of the project at the front', function() {
-    let spy = sinon.spy(console, 'count');
-    console.count(testStr);
-
-    assert(spy.calledWith(testStr));
-    spy.restore();
-  });
-
-  // time
-
-  it('Should write the time to the console in green with the name of the project at the front', function() {
-    console.time();
-  });
-
-  // timeEnd
-
-  it('Should stop the time', function() {
-    console.timeEnd();
   });
 });

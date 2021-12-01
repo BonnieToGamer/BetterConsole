@@ -1,5 +1,7 @@
-# even-better-console [![NPM version](https://img.shields.io/npm/v/even-better-console.svg?style=flat)](https://www.npmjs.com/package/even-better-console) [![NPM monthly downloads](https://img.shields.io/npm/dm/even-better-console.svg?style=flat)](https://www.npmjs.com/package/even-better-console) [![NPM total downloads](https://img.shields.io/npm/dt/even-better-console.svg?style=flat)](https://www.npmjs.com/package/even-better-console)
+# even-better-console 
+[![NPM version](https://img.shields.io/npm/v/even-better-console.svg?style=flat)](https://www.npmjs.com/package/even-better-console) [![NPM monthly downloads](https://img.shields.io/npm/dm/even-better-console.svg?style=flat)](https://www.npmjs.com/package/even-better-console) [![NPM total downloads](https://img.shields.io/npm/dt/even-better-console.svg?style=flat)](https://www.npmjs.com/package/even-better-console)
 > An even better Node.js console.
+------
 
 ## Installation 
 Install with [npm](https://www.npmjs.com/):

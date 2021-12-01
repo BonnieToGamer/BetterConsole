@@ -7,7 +7,7 @@
   "main": "index.js",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/BonnieToGamer/BetterConsole/issues"
+    "url": "https://github.com/BonnieToGamer/even-better-console/issues"
   },
   "dependencies": {
     "colors": "^1.4.0",
@@ -18,8 +18,8 @@
     "mocha": "^9.1.3",
     "sinon": "^12.0.1"
   },
-  "repository": "BonnieToGamer/BetterConsole",
-  "homepage": "https://github.com/BonnieToGamer/BetterConsole",
+  "repository": "BonnieToGamer/even-better-console",
+  "homepage": "https://github.com/BonnieToGamer/even-better-console",
   "files": [
     "index.js"
   ],
