@@ -14,7 +14,7 @@ When writing to the console this project will add the project name as a prefix t
 By default both the prefix and the paramaters are colored.
 
 ```js
-require('even-better-console');
+const console = require('even-better-console');
 
 console.log('test');
 console.options.logWithColor = false;
@@ -29,7 +29,7 @@ console.log('test');
 ### Example 2:
 
 ```js
-require('even-better-console');
+const console = require('even-better-console');
 
 console.log('log');
 console.options.logWithColor = false;
